@@ -54,3 +54,19 @@ FROM (
 # 180 is the target size in GB
 fly volumes extend <volume-id> -s 180
 ```
+
+# Wireguard
+I've run into issues where IPs stop resolving. Create a different wireguard tunnel.
+
+[Fly private networking](https://fly.io/docs/networking/private-networking/)
+
+```bash
+fly wireguard create
+shortname.conf
+sudo mv shortname.conf /etc/wireguard/
+sudo chown root:root /etc/wireguard/shortname.conf
+
+# should go in ~/.bashrc
+alias fly-up="sudo wg-quick up ashortname"
+alias fly-down="sudo wg-quick down shortname"
+```
