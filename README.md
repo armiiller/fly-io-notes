@@ -21,6 +21,8 @@ fly scale count <num> [--region sea]
 
 ```bash
 fly scale memory 2048
+fly scale vm shared-cpu-1x --vm-memory=2048 -c fly.toml
+fly scale vm performance-1x -c fly.toml
 ```
 
 # Postgres
@@ -67,6 +69,6 @@ sudo mv shortname.conf /etc/wireguard/
 sudo chown root:root /etc/wireguard/shortname.conf
 
 # should go in ~/.bashrc
-alias fly-up="sudo wg-quick up ashortname"
+alias fly-up="sudo wg-quick up shortname"
 alias fly-down="sudo wg-quick down shortname"
 ```
